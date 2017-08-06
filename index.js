@@ -8,6 +8,9 @@ var numCPUs = require('os').cpus().length;
 var server = require('./server');
 var router = require('./router');
 var requestHandlers = require('./requestHandlers');
+var HashMap = require('./hashmap');
+
+
 
 if(cluster.isMaster) {
 

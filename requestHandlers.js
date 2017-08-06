@@ -3,7 +3,7 @@
  */
 var sendingThread = require('./sendingThread');
 
-function join(response){
+function join(response, request){
     console.log('request handler called --> join');
     response.writeHead(200, {'Content-Type' : 'text/plain'});
     response.write("success");
@@ -26,7 +26,7 @@ function create(response) {
 
 function flowOpen(response) {
     console.log('request handler called --> flowOpen');
-var v = sendingThread.getCount();
+    var v = sendingThread.getCount();
     //sendingThread.sendingThread(response);
     response.writeHead(200, {'Content-Type' : 'text/plain'});
     response.write('' + v);

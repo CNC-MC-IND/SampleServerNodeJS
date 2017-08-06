@@ -2,14 +2,10 @@
  * Created by NCS-KSW on 2017-08-04.
  */
 var http = require('http');
-var url = require('url');
 
 function start(route, handle) {
     function onRequest(request, response) {
-        var pathname = url.parse(request.url).pathname;
-        console.log('request for ' + pathname + ' received.');
-
-        route(handle, pathname, response); // injected function call
+        route(handle, response, request); // injected function call
     }
 
     http.createServer(onRequest).listen(8888);
@@ -18,3 +14,7 @@ function start(route, handle) {
 }
 
 exports.start = start;
+/*var ip = request.headers['x-forwarded-for'] ||
+    request.connection.remoteAddress ||
+    request.socket.remoteAddress ||
+    request.connection.socket.remoteAddress;*/
