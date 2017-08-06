@@ -12,7 +12,7 @@ function start(route, handle) {
         route(handle, pathname, response); // injected function call
     }
 
-    http.createServer(onRequest).listen(443);
+    http.createServer(onRequest).listen(8888);
 
     console.log('server has started.');
 }
